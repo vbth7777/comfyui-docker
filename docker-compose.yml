@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  comfyui:
+    build: .
+    ports:
+      - "8188:8188"
+    volumes:
+      - ./models:/comfyui/models
+      - ./custom_nodes:/comfyui/custom_nodes
+      - ./output:/comfyui/output
+      - ./input:/comfyui/input
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
