@@ -21,6 +21,7 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir gradio requests
 
 # Install ComfyUI-Manager
 RUN cd custom_nodes && \
@@ -46,8 +47,10 @@ RUN huggingface-cli download Comfy-Org/flux1-kontext-dev_ComfyUI split_files/dif
 RUN huggingface-cli download black-forest-labs/FLUX.1-Fill-dev flux1-fill-dev.safetensors --local-dir /comfyui/models/diffusion_models --local-dir-use-symlinks False
 
 
+COPY gradio_app.py /comfyui/
+
 # Expose the default ComfyUI port
 EXPOSE 8188
 
 # Define the entrypoint
-CMD ["python3", "main.py", "--listen", "0.0.0.0"]
+CMD ["python3", "/comfyui/gradio_app.py"]

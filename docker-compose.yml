@@ -1,6 +1,7 @@
 services:
   comfyui:
     build: .
+    command: --listen 0.0.0.0
     ports:
       - "8188:8188"
     volumes:
