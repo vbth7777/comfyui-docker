@@ -39,12 +39,13 @@ if [ -z "$1" ]; then
 else
   echo "Hugging Face token provided. Downloading models..."
   export HF_TOKEN=$1
-  hf download Comfy-Org/Lumina_Image_2.0_Repackaged split_files/vae/ae.safetensors --local-dir /comfyui/models/vae --local-dir-use-symlinks False
-  hf download comfyanonymous/flux_text_encoders clip_l.safetensors --local-dir /comfyui/models/text_encoders --local-dir-use-symlinks False
-  hf download comfyanonymous/flux_text_encoders t5xxl_fp8_e4m3fn_scaled.safetensors --local-dir /comfyui/models/text_encoders --local-dir-use-symlinks False
-  hf download comfyanonymous/flux_text_encoders t5xxl_fp16.safetensors --local-dir /comfyui/models/text_encoders --local-dir-use-symlinks False
-  hf download Comfy-Org/flux1-kontext-dev_ComfyUI split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors --local-dir /comfyui/models/diffusion_models --local-dir-use-symlinks False
-  hf download black-forest-labs/FLUX.1-Fill-dev flux1-fill-dev.safetensors --local-dir /comfyui/models/diffusion_models --local-dir-use-symlinks False
+  hf download Comfy-Org/Lumina_Image_2.0_Repackaged ae.safetensors --local-dir /comfyui/models/vae 
+  hf download comfyanonymous/flux_text_encoders clip_l.safetensors --local-dir /comfyui/models/text_encoders 
+  hf download comfyanonymous/flux_text_encoders t5xxl_fp8_e4m3fn_scaled.safetensors --local-dir /comfyui/models/text_encoders 
+  hf download comfyanonymous/flux_text_encoders t5xxl_fp16.safetensors --local-dir /comfyui/models/text_encoders 
+  hf download Comfy-Org/flux1-kontext-dev_ComfyUI flux1-dev-kontext_fp8_scaled.safetensors --local-dir /comfyui/models/diffusion_models 
+  hf download black-forest-labs/FLUX.1-Fill-dev flux1-fill-dev.safetensors --local-dir /comfyui/models/diffusion_models 
+  hf download Comfy-Org/flux1-kontext-dev_ComfyUI flux1-dev-kontext_fp8_scaled.safetensors --local-dir /comfyui/models/diffusion_models 
 fi
 
 echo "Setup complete. To run the application, you can use the following command:"
