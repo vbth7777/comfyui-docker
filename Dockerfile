@@ -39,7 +39,7 @@ RUN mkdir -p /comfyui/models/vae && \
     mkdir -p /comfyui/models/diffusion_models
 
 # Download models using huggingface-cli
-RUN hf download Comfy-Org/Lumina_Image_2.0_Repackaged split_files/vae/ae.safetensors --local-dir /comfyui/models/vae 
+RUN hf download Comfy-Org/Lumina_Image_2.0_Repackaged vae/ae.safetensors --local-dir /comfyui/models 
 RUN hf download comfyanonymous/flux_text_encoders clip_l.safetensors --local-dir /comfyui/models/text_encoders 
 RUN hf download comfyanonymous/flux_text_encoders t5xxl_fp8_e4m3fn_scaled.safetensors --local-dir /comfyui/models/text_encoders 
 RUN hf download comfyanonymous/flux_text_encoders t5xxl_fp16.safetensors --local-dir /comfyui/models/text_encoders 
